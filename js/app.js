@@ -10,6 +10,17 @@ const text = '#Heading\n=======\n\nSub-heading\n-----------\n' +
     '  3. pears\n\nThe rain---not the reign---in\nSpain.\n\n' +
     ' *[Herman Fassett](https://freecodecamp.com/hermanfassett)*';
 
+marked.setOptions({
+    renderer: new marked.Renderer(),
+    gfm: true,
+    tables: true,
+    breaks: true,
+    pedantic: true,
+    sanitize: true,
+    smartLists: true,
+    smartypants: true
+});
+
 const element = (
     <textarea type="text" className='frame'>
         {text}
@@ -20,4 +31,16 @@ ReactDOM.render(
     element,
     document.getElementById('input')
 );
+
+let element2 = (
+    marked('#Hello')
+);
+console.log(element2);
+
+ReactDOM.render(
+    element2,
+    document.getElementById('output')
+);
+
+
 
