@@ -21,25 +21,23 @@ marked.setOptions({
     smartypants: true
 });
 
-const element = (
-    <textarea type="text" className='frame'>
+class Markdown extends React.Component {
+    render() {
+        return (
+            <div className='row'>
+                <div className='input col-md-6'><textarea type="text" className='frame'>
         {text}
-    </textarea>
-);
+    </textarea></div>
+                <div className='output col-md-6' dangerouslySetInnerHTML={{__html: marked(text)}}></div>
+            </div>
+        );
+    }
+}
+
 
 ReactDOM.render(
-    element,
-    document.getElementById('input')
-);
-
-let element2 = (
-    marked('#Hello')
-);
-console.log(element2);
-
-ReactDOM.render(
-    element2,
-    document.getElementById('output')
+    <Markdown />,
+    document.getElementsByClassName('container')[0]
 );
 
 
