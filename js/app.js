@@ -22,7 +22,6 @@ var Markdown = React.createClass ({
     this.setState({
         text:textarea.value
     });
-        console.log(textarea.value);
 },
 
     render: function() {
